@@ -1,7 +1,7 @@
 const mysql = require("mysql2/promise");
 const { config } = require("./config.js");
 
-export const queryDB = async () => {
+const queryDB = async () => {
   const connection = await mysql.createConnection(config.db);
   const results = {};
 
@@ -27,3 +27,5 @@ export const queryDB = async () => {
 
   return results;
 };
+
+module.exports = { queryDB };

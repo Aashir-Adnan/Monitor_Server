@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 const { config } = require("./config.js");
 
-export const sendMail = async (subject, text) => {
+const sendMail = async (subject, text) => {
   const transporter = nodemailer.createTransport(config.email.smtp);
 
   const mailOptions = {
@@ -14,3 +14,5 @@ export const sendMail = async (subject, text) => {
   await transporter.sendMail(mailOptions);
   console.log("📧 Email sent successfully");
 };
+
+module.exports = { sendMail };
